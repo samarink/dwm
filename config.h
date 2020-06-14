@@ -20,6 +20,7 @@ static const char col_gray3[]       = "#d8dee9";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#3b4252";
 static const char col_cyan[]        = "#88c0d0";
+static const char col_green[]       = "#a3be8c";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -81,7 +82,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4,
+                                                                                "-nhb", col_gray1, "-nhf", col_green, "-shb", col_gray5, "-shf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
@@ -103,11 +105,12 @@ static Key keys[] = {
   { MODKEY,                       XK_e,                 spawn,          SHCMD("kitty -e lf") },
   { MODKEY|ShiftMask,             XK_e,                 spawn,          SHCMD("pcmanfm") },
   { MODKEY,                       XK_F1,                spawn,          SHCMD("pavucontrol") },
+  { MODKEY,                       XK_y,                 spawn,          SHCMD("copyq toggle") },
+  { 0,                            XK_Print,             spawn,          SHCMD("flameshot gui") },
+  { MODKEY|ControlMask,           XK_t,                 spawn,          SHCMD("toggletransperency") },
   { MODKEY,                       XK_F2,                spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
   { MODKEY,                       XK_F3,                spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
   { MODKEY,                       XK_F4,                spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-  { MODKEY,                       XK_y,                 spawn,          SHCMD("copyq toggle") },
-  { 0,                            XK_Print,             spawn,          SHCMD("flameshot gui") },
   { MODKEY|ShiftMask,             XK_grave,             spawn,          SHCMD("sudo systemctl suspend") },
   { MODKEY|Mod1Mask,              XK_grave,             spawn,          SHCMD("sudo systemctl hibernate") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
