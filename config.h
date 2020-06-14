@@ -48,14 +48,23 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
-#include "fibonacci.c"
+#include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
- 	{ "[@]",      spiral },
- 	{ "[\\]",     dwindle },
+	{ "[]=",      tile },                    /* Default: Master on left, slaves on right */
+  { "TTT",	    bstack },                  /* Master on top, slaves on bottom */
+
+ 	{ "[@]",      spiral },                  /* Fibonacci spiral */
+ 	{ "[\\]",     dwindle },                 /* Decreasing in size right and leftward */
+
+	{ "[M]",      monocle },                 /* All windows on top of eachother */
+  { "H[]",	    deck },                    /* Master on left, slaves in monocle-like mode on right */
+
+  { "|M|",	    centeredmaster },		       /* Master in middle, slaves on sides */
+	{ ">M>",	    centeredfloatingmaster },  /* Same but master floats */
+
+	{ "><>",      NULL },                    /* no layout function means floating behavior */
+  { NULL,       NULL },
 };
 
 /* key definitions */
@@ -110,10 +119,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,               view,           {0} },
 	{ MODKEY,                       XK_x,                 killclient,     {0} },
 	{ MODKEY,                       XK_t,                 setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,                 setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,                 setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_r,                 setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_r,                 setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_t,                 setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_r,                 setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_r,                 setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_m,                 setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_m,                 setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_c,                 setlayout,      {.v = &layouts[6]} },
+	{ MODKEY|ShiftMask,             XK_c,                 setlayout,      {.v = &layouts[7]} },
+	{ MODKEY|ShiftMask,             XK_s,                 setlayout,      {.v = &layouts[8]} },
 	{ MODKEY|ShiftMask,             XK_space,             setlayout,      {0} },
 	{ MODKEY,                       XK_s,                 togglefloating, {0} },
 	{ MODKEY,                       XK_0,                 view,           {.ui = ~0 } },
@@ -152,5 +165,6 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+
 };
 
