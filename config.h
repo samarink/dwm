@@ -122,8 +122,8 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_grave,             spawn,          SHCMD("sudo systemctl suspend") },
   { MODKEY|Mod1Mask,              XK_grave,             spawn,          SHCMD("sudo systemctl hibernate") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
-	STACKKEYS(MODKEY,                          focus)
-	STACKKEYS(MODKEY|ShiftMask,                push)
+	STACKKEYS(MODKEY,                                     focus)
+	STACKKEYS(MODKEY|ShiftMask,                           push)
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,                 incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,                 setmfact,       {.f = -0.05} },
@@ -146,6 +146,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,                 setlayout,      {.v = &layouts[8]} },
 	{ MODKEY|ShiftMask,             XK_space,             setlayout,      {0} },
 	{ MODKEY,                       XK_s,                 togglefloating, {0} },
+	{ MODKEY,                       XK_f,                 togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,                 view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                 tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,             focusmon,       {.i = -1 } },

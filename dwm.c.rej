@@ -1,23 +1,9 @@
 --- dwm.c
 +++ dwm.c
-@@ -238,6 +239,9 @@ static void zoom(const Arg *arg);
- /* variables */
- static const char broken[] = "broken";
- static char stext[256];
-+static char rawstext[256];
-+static int statuscmdn;
-+static char lastbutton[] = "-";
- static int screen;
- static int sw, sh;           /* X display screen geometry width, height */
- static int bh, blw = 0;      /* bar geometry */
-@@ -1673,6 +1708,10 @@ spawn(const Arg *arg)
- {
- 	if (arg->v == dmenucmd)
- 		dmenumon[0] = '0' + selmon->num;
-+	else if (arg->v == statuscmd) {
-+		statuscmd[2] = statuscmds[statuscmdn];
-+		setenv("BUTTON", lastbutton, 1);
-+	}
- 	if (fork() == 0) {
- 		if (dpy)
- 			close(ConnectionNumber(dpy));
+@@ -211,6 +211,7 @@ static void tagmon(const Arg *arg);
+ static void tile(Monitor *);
+ static void togglebar(const Arg *arg);
+ static void togglefloating(const Arg *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+ static void unfocus(Client *c, int setfocus);
