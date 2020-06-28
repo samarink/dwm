@@ -39,7 +39,6 @@ static const Rule rules[] = {
 	{ "Gimp",          NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox",       NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "kitty",         NULL,     NULL,           0,         0,          1,          -1,        -1 },
-	/* { "copyq",         NULL,     NULL,           0,         1,          0,          -1,        -1 }, */
 	{ "Pcmanfm",       NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ "Pavucontrol",   NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ NULL,            NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
@@ -92,8 +91,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4,
                                                                                 "-nhb", col_gray1, "-nhf", col_green, "-shb", col_gray5, "-shf", col_gray4, NULL };
-static const char *clipmenudcmd[] = { "clipmenu", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4,
-                                                                                "-nhb", col_gray1, "-nhf", col_green, "-shb", col_gray5, "-shf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
@@ -111,7 +108,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,                 spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,            spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_u,                 togglescratch,  {.v = scratchpadcmd } },
-  { MODKEY,                       XK_y,                 spawn,          {.v = clipmenudcmd } },
+  { MODKEY,                       XK_y,                 spawn,          SHCMD("copyq toggle") },
   { MODKEY,                       XK_n,                 spawn,          SHCMD("brave") },
   { MODKEY|ShiftMask,             XK_n,                 spawn,          SHCMD("brave --incognito") },
   { MODKEY,                       XK_v,                 spawn,          SHCMD("kitty -e nvim") },
