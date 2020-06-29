@@ -41,6 +41,7 @@ static const Rule rules[] = {
 	{ "kitty",         NULL,     NULL,           0,         0,          1,          -1,        -1 },
 	{ "Pcmanfm",       NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ "Pavucontrol",   NULL,     NULL,           0,         1,          0,          -1,        -1 },
+	{ "copyq",         NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ NULL,            NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
