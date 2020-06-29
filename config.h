@@ -98,7 +98,7 @@ static char *statuscmds[] = { "dwm-volume" };
 static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "kitty", "-T", scratchpadname, "--class", scratchpadname, NULL };
+static const char *scratchpadcmd[] = { "kitty", "-T", scratchpadname, NULL };
 
 #include "shiftview.c"
 static Key keys[] = {
