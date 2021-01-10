@@ -39,13 +39,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",          NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox",       NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "kitty",         NULL,     NULL,           0,         0,          1,          -1,        -1 },
-	{ "Pcmanfm",       NULL,     NULL,           0,         1,          0,          -1,        -1 },
-	{ "Pavucontrol",   NULL,     NULL,           0,         1,          0,          -1,        -1 },
-	{ "copyq",         NULL,     NULL,           0,         1,          0,          -1,        -1 },
-	{ NULL,            NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
+	{ "kitty",            NULL,  NULL, 0,         0,          1,          -1,        -1 },
+	{ "Pcmanfm",          NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "Pavucontrol",      NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "copyq",            NULL,  NULL, 0,         1,          0,          -1,        -1 },
+//	{ "TelegramDesktop",  NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{                     NULL,  NULL, "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -119,12 +118,12 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_e,                 spawn,          SHCMD("pcmanfm") },
   { MODKEY,                       XK_F1,                spawn,          SHCMD("pavucontrol") },
   { 0,                            XK_Print,             spawn,          SHCMD("flameshot gui") },
-  { MODKEY|ControlMask,           XK_t,                 spawn,          SHCMD("toggletransperency") },
   { MODKEY,                       XK_F2,                spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
   { MODKEY,                       XK_F3,                spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
   { MODKEY,                       XK_F4,                spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
   { MODKEY|ShiftMask,             XK_grave,             spawn,          SHCMD("sudo systemctl suspend") },
   { MODKEY|Mod1Mask,              XK_grave,             spawn,          SHCMD("sudo systemctl hibernate") },
+  { MODKEY|Mod1Mask,              XK_o,                 spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,                 incnmaster,     {.i = -1 } },
