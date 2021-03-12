@@ -40,10 +40,12 @@ static const Rule rules[] = {
 	 */
 	/* class          instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "kitty",            NULL,  NULL, 0,         0,          1,          -1,        -1 },
-	{ "Pcmanfm",          NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "Thunar",						NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Pavucontrol",      NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "copyq",            NULL,  NULL, 0,         1,          0,          -1,        -1 },
-//	{ "TelegramDesktop",  NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "TelegramDesktop",  NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "Transmission-gtk", NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "Anki",							NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{                     NULL,  NULL, "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
@@ -115,7 +117,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_n,                 spawn,          SHCMD("brave --incognito") },
   { MODKEY,                       XK_v,                 spawn,          SHCMD("kitty -e nvim") },
   { MODKEY,                       XK_e,                 spawn,          SHCMD("kitty -e lf") },
-  { MODKEY|ShiftMask,             XK_e,                 spawn,          SHCMD("pcmanfm") },
+  { MODKEY|ShiftMask,             XK_e,                 spawn,          SHCMD("thunar") },
   { MODKEY,                       XK_F1,                spawn,          SHCMD("pavucontrol") },
   { 0,                            XK_Print,             spawn,          SHCMD("flameshot gui") },
   { MODKEY,                       XK_F2,                spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
@@ -124,6 +126,9 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_grave,             spawn,          SHCMD("sudo systemctl suspend") },
   { MODKEY|Mod1Mask,              XK_grave,             spawn,          SHCMD("sudo systemctl hibernate") },
   { MODKEY|Mod1Mask,              XK_o,                 spawn,          SHCMD("telegram-desktop") },
+  { MODKEY|Mod1Mask,              XK_k,                 spawn,          SHCMD("transmission-gtk") },
+  { MODKEY|Mod1Mask,              XK_a,                 spawn,          SHCMD("anki") },
+  { MODKEY|Mod1Mask,              XK_p,                 spawn,          SHCMD("thunderbird") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,                 incnmaster,     {.i = -1 } },
