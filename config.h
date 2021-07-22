@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "copyq",            NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "TelegramDesktop",  NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Transmission-gtk", NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "Rocket.Chat",			NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Anki",							NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{                     NULL,  NULL, "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
@@ -129,6 +130,10 @@ static Key keys[] = {
   { MODKEY|Mod1Mask,              XK_k,                 spawn,          SHCMD("transmission-gtk") },
   { MODKEY|Mod1Mask,              XK_a,                 spawn,          SHCMD("anki") },
   { MODKEY|Mod1Mask,              XK_p,                 spawn,          SHCMD("thunderbird") },
+  { MODKEY|Mod1Mask,              XK_s,                 spawn,          SHCMD("syncplay") },
+  { MODKEY|Mod1Mask,              XK_f,                 spawn,          SHCMD("firefox") },
+  { MODKEY|Mod1Mask,              XK_h,                 spawn,          SHCMD("hubstuff") },
+  { MODKEY|Mod1Mask,              XK_c,                 spawn,          SHCMD("rocketchat-desktop") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,                 incnmaster,     {.i = -1 } },
