@@ -47,6 +47,7 @@ static const Rule rules[] = {
 	{ "Transmission-gtk", NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Rocket.Chat",			NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Anki",							NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "discord",					NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{                     NULL,  NULL, "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
@@ -116,6 +117,7 @@ static Key keys[] = {
   { MODKEY,                       XK_y,                 spawn,          SHCMD("copyq toggle") },
   { MODKEY,                       XK_n,                 spawn,          SHCMD("brave") },
   { MODKEY|ShiftMask,             XK_n,                 spawn,          SHCMD("brave --incognito") },
+  { MODKEY|Mod1Mask,							XK_n,                 spawn,          SHCMD("brave --tor") },
   { MODKEY,                       XK_v,                 spawn,          SHCMD("kitty -e nvim") },
   { MODKEY,                       XK_e,                 spawn,          SHCMD("kitty -e lf") },
   { MODKEY|ShiftMask,             XK_e,                 spawn,          SHCMD("thunar") },
@@ -134,6 +136,7 @@ static Key keys[] = {
   { MODKEY|Mod1Mask,              XK_f,                 spawn,          SHCMD("firefox") },
   { MODKEY|Mod1Mask,              XK_h,                 spawn,          SHCMD("hubstuff") },
   { MODKEY|Mod1Mask,              XK_c,                 spawn,          SHCMD("rocketchat-desktop") },
+  { MODKEY|Mod1Mask,              XK_d,                 spawn,          SHCMD("discord") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,                 incnmaster,     {.i = -1 } },
