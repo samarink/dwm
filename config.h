@@ -48,6 +48,8 @@ static const Rule rules[] = {
 	{ "Rocket.Chat",			NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "Anki",							NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{ "discord",					NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "syncplay",					NULL,  NULL, 0,         1,          0,          -1,        -1 },
+	{ "zoom",							NULL,  NULL, 0,         1,          0,          -1,        -1 },
 	{                     NULL,  NULL, "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
