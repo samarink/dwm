@@ -135,8 +135,6 @@ static Key keys[] = {
   { MODKEY|Mod1Mask,              XK_p,                 spawn,          SHCMD("thunderbird") },
   { MODKEY|Mod1Mask,              XK_s,                 spawn,          SHCMD("syncplay") },
   { MODKEY|Mod1Mask,              XK_f,                 spawn,          SHCMD("firefox") },
-  { MODKEY|Mod1Mask,              XK_h,                 spawn,          SHCMD("hubstuff") },
-  { MODKEY|Mod1Mask,              XK_c,                 spawn,          SHCMD("rocketchat-desktop") },
   { MODKEY|Mod1Mask,              XK_d,                 spawn,          SHCMD("discord") },
 	{ MODKEY,                       XK_b,                 togglebar,      {0} },
 	{ MODKEY,                       XK_i,                 incnmaster,     {.i = +1 } },
