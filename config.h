@@ -128,6 +128,7 @@ static Key keys[] = {
   { MODKEY,                       XK_F4,                spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
   { MODKEY|ShiftMask,             XK_grave,             spawn,          SHCMD("sudo systemctl suspend") },
   { MODKEY|Mod1Mask,              XK_grave,             spawn,          SHCMD("sudo systemctl hibernate") },
+  { MODKEY|ControlMask,						XK_grave,             spawn,          SHCMD("sudo shutdown now") },
   { MODKEY|Mod1Mask,              XK_o,                 spawn,          SHCMD("telegram-desktop") },
   { MODKEY|Mod1Mask,              XK_k,                 spawn,          SHCMD("transmission-gtk") },
   { MODKEY|Mod1Mask,              XK_a,                 spawn,          SHCMD("anki") },
